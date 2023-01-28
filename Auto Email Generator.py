@@ -1,18 +1,20 @@
 def get_contacts(contacts):
     names = []
     emails = []
-    with open("contacts.txt",'r') as contacts_file:
+    with open("contacts.txt",'r') as contacts_file: #edit the file name to your txt file name
+
         for a_contact in contacts_file:
             names.append(a_contact.split()[0])
             emails.append(a_contact.split()[1])
     return names, emails
-names, emails = get_contacts('contacts.txt')
+names, emails = get_contacts('contacts.txt') #edit the file name to your txt file name
+
 import itertools
 for (x,y) in zip(names,emails):
     import os
     import smtplib
-    EMAIL_ADDRESS= 'i2cproject11@gmail.com'
-    PASSWORD= 'Password789'
+    EMAIL_ADDRESS= 'i2cproject11@gmail.com' #edit this email to your sender email address
+    PASSWORD= 'Password789'  #edit this password to your email password
     reciever=y
     with smtplib.SMTP('smtp.gmail.com', 587)as smtp:
         smtp.ehlo()
